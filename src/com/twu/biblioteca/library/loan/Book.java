@@ -1,4 +1,4 @@
-package com.twu.biblioteca.library;
+package com.twu.biblioteca.library.loan;
 
 public class Book extends LibraryItem {
 
@@ -10,5 +10,4 @@ public class Book extends LibraryItem {
     public String toString() {
         return String.format("%s | %s | %s | %s\n", number, title, author, year);
     }
-
 }
