@@ -1,15 +1,19 @@
-package com.twu.biblioteca.utils;
+package com.twu.biblioteca.library;
 
 public class User {
 
     private String libraryNumber;
     private String password;
     private String name;
+    private String emailAddress;
+    private String phoneNumber;
 
-    public User(String libraryNumber, String password, String name) {
+    public User(String libraryNumber, String password, String name, String emailAddress, String phoneNumber) {
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.name = name;
+        this.emailAddress = emailAddress;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getLibraryNumber() {
@@ -24,6 +28,14 @@ public class User {
         return name;
     }
 
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,11 +43,18 @@ public class User {
 
         User user = (User) o;
 
+        if (emailAddress != null ? !emailAddress.equals(user.emailAddress) : user.emailAddress != null) return false;
         if (libraryNumber != null ? !libraryNumber.equals(user.libraryNumber) : user.libraryNumber != null)
             return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(user.phoneNumber) : user.phoneNumber != null) return false;
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s | %s | %s", name, emailAddress, phoneNumber);
     }
 }

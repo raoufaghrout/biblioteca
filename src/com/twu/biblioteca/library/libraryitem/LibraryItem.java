@@ -1,4 +1,4 @@
-package com.twu.biblioteca.library.loan;
+package com.twu.biblioteca.library.libraryitem;
 
 public class LibraryItem implements Comparable {
 
