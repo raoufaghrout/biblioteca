@@ -1,6 +1,7 @@
 package com.twu.biblioteca.library;
 
 import com.twu.biblioteca.command.Command;
+import com.twu.biblioteca.library.loan.LibraryItem;
 import com.twu.biblioteca.utils.BibliotecaInputHandler;
 import com.twu.biblioteca.utils.BibliotecaOutputPresenter;
 
@@ -73,5 +74,9 @@ public class Library {
 
     public List<LibraryItem> getWithdrawnItemList() {
         return withdrawnItemList;
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }
