@@ -49,7 +49,7 @@ public class BibliotecaOutputPresenter {
 
     public static String loginMessage() {
         return "Please Login to the Biblioteca!\n" +
-                "Username (Library Number):";
+                "Library Number:";
     }
 
     public static String passwordPromptMessage() {
