@@ -4,6 +4,8 @@ import com.twu.biblioteca.command.Command;
 import com.twu.biblioteca.library.loan.LibraryItem;
 import com.twu.biblioteca.utils.BibliotecaInputHandler;
 import com.twu.biblioteca.utils.BibliotecaOutputPresenter;
+import com.twu.biblioteca.utils.LoginValidator;
+import com.twu.biblioteca.utils.User;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +14,7 @@ public class Library {
 
     private final List<LibraryItem> libraryCatalogue;
     private final List<LibraryItem> withdrawnItemList;
-    private boolean running = true;
+    private boolean running;
 
     public Library(List<LibraryItem> libraryCatalogue, List<LibraryItem> withdrawnItemList) {
         this.libraryCatalogue = libraryCatalogue;
@@ -20,7 +22,23 @@ public class Library {
     }
 
     public void start() {
+        running = true;
+        System.out.println(BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
+
         while (running) executeCommand(BibliotecaInputHandler.commandPrompt());
+    }
+
+    public void login() {
+        boolean loggedIn = false;
+
+        while (!loggedIn) {
+            User user = LoginValidator.getUserFromLibraryNumberAndPassword(BibliotecaInputHandler.loginPrompt(), BibliotecaInputHandler.passwordPrompt());
+
+            if (user != null) {
+                loggedIn = true;
+                start();
+            }
+        }
     }
 
     public void executeCommand(String commandAsString) {
