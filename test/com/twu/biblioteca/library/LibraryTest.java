@@ -1,5 +1,7 @@
 package com.twu.biblioteca.library;
 
+import com.twu.biblioteca.library.loan.Book;
+import com.twu.biblioteca.library.loan.LibraryItem;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -43,6 +45,13 @@ public class LibraryTest {
     public void whenIAttemptToFindAnItemThatExistsTheCorrectItemIsReturned() {
         library = new Library(listContainingOneBook(), new ArrayList<LibraryItem>());
         assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960"), library.findItem(library.getLibraryCatalogue(), "1"));
+    }
+
+    @Test
+    public void whenIAttemptToQuitTheLibraryItTerminatesCorrectly() throws Exception {
+        library = new Library(new ArrayList<LibraryItem>(), new ArrayList<LibraryItem>());
+        library.quit();
+        assertEquals(library.isRunning(), false);
     }
 
     private ArrayList<LibraryItem> listContainingOneBook() {
