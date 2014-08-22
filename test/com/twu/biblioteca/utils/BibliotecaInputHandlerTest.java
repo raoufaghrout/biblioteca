@@ -1,9 +1,6 @@
 package com.twu.biblioteca.utils;
 
-import com.twu.biblioteca.command.ListCommand;
-import com.twu.biblioteca.command.QuitCommand;
-import com.twu.biblioteca.command.ReturnCommand;
-import com.twu.biblioteca.command.WithdrawCommand;
+import com.twu.biblioteca.command.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -16,6 +13,7 @@ public class BibliotecaInputHandlerTest {
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Quit").getClass(), QuitCommand.class);
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Withdraw 1").getClass(), WithdrawCommand.class);
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Return 2").getClass(), ReturnCommand.class);
+        assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Info").getClass(), InfoCommand.class);
     }
 
     @Test
@@ -24,5 +22,6 @@ public class BibliotecaInputHandlerTest {
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Quit").getParameter(), null);
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Withdraw 1").getParameter(), "1");
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Return 2").getParameter(), "2");
+        assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Info").getParameter(), null);
     }
 }

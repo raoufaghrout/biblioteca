@@ -1,9 +1,10 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.library.Library;
-import com.twu.biblioteca.library.loan.Book;
-import com.twu.biblioteca.library.loan.LibraryItem;
-import com.twu.biblioteca.library.loan.Movie;
+import com.twu.biblioteca.library.libraryitem.Book;
+import com.twu.biblioteca.library.libraryitem.LibraryItem;
+import com.twu.biblioteca.library.libraryitem.Movie;
+import com.twu.biblioteca.utils.LoginController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,6 @@ class BibliotecaApp {
 
     public static void main(String[] args) {
         Library library = new Library(libraryCatalogue, new ArrayList<LibraryItem>());
-        library.login();
+        library.start(LoginController.attemptLogin());
     }
 }

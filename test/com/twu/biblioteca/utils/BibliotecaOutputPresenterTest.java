@@ -1,8 +1,9 @@
 package com.twu.biblioteca.utils;
 
 
-import com.twu.biblioteca.library.loan.Book;
-import com.twu.biblioteca.library.loan.LibraryItem;
+import com.twu.biblioteca.library.User;
+import com.twu.biblioteca.library.libraryitem.Book;
+import com.twu.biblioteca.library.libraryitem.LibraryItem;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -64,13 +65,19 @@ public class BibliotecaOutputPresenterTest {
     }
 
     @Test
-    public void loginMessageIsPrinted() throws Exception {
+    public void loginMessageIsPrinted() {
         assertEquals("Please Login to the Biblioteca!\n" +
                 "Library Number:", BibliotecaOutputPresenter.loginPromptMessage());
     }
 
     @Test
-    public void passwordPromptIsPrinted() throws Exception {
+    public void passwordPromptIsPrinted() {
         assertEquals("Password:", BibliotecaOutputPresenter.passwordPromptMessage());
+    }
+
+    @Test
+    public void userInfoIsPrinted() {
+        User user = new User("123-4567", "Password1", "Test User", "testuser@biblioteca.co.uk", "01234567890");
+        assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890", BibliotecaOutputPresenter.userInfo(user));
     }
 }

@@ -1,6 +1,7 @@
 package com.twu.biblioteca.utils;
 
-import com.twu.biblioteca.library.loan.LibraryItem;
+import com.twu.biblioteca.library.User;
+import com.twu.biblioteca.library.libraryitem.LibraryItem;
 
 import java.util.List;
 
@@ -54,5 +55,9 @@ public class BibliotecaOutputPresenter {
 
     public static String passwordPromptMessage() {
         return "Password:";
+    }
+
+    public static String userInfo(User user) {
+        return user.toString();
     }
 }

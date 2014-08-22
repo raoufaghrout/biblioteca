@@ -1,9 +1,10 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.library.Library;
-import com.twu.biblioteca.library.loan.Book;
-import com.twu.biblioteca.library.loan.LibraryItem;
-import com.twu.biblioteca.library.loan.Movie;
+import com.twu.biblioteca.library.User;
+import com.twu.biblioteca.library.libraryitem.Book;
+import com.twu.biblioteca.library.libraryitem.LibraryItem;
+import com.twu.biblioteca.library.libraryitem.Movie;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,13 +27,16 @@ public class BibliotecaAppTest {
         printStream = System.out;
         byteArrayOutputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(byteArrayOutputStream));
+
         List<LibraryItem> libraryItemList = new ArrayList<LibraryItem>() {{
             add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960"));
             add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937"));
             add(new Movie("3", "Pulp Fiction", "Quentin Tarantino", "1994", "10"));
             add(new Movie("4", "Jurassic Park", "Steven Spielberg", "1993", "unrated"));
         }};
+
         library = new Library(libraryItemList, new ArrayList<LibraryItem>());
+        library.setUserSession(validUser());
     }
 
     @After
@@ -96,5 +100,15 @@ public class BibliotecaAppTest {
     public void whenIAttemptToReturnAnInvalidItemTheInvalidItemMessageIsPresented() {
         library.executeCommand("Return 2");
         assertEquals("That is not a valid item to return.\n", byteArrayOutputStream.toString());
+    }
+
+    @Test
+    public void whenIEnterTheInfoCommandMyInformationShouldBePresented() {
+        library.executeCommand("Info");
+        assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890", byteArrayOutputStream.toString());
+    }
+
+    private User validUser() {
+        return new User("123-4567", "Password1", "Test User", "testuser@biblioteca.co.uk", "01234567890");
     }
 }

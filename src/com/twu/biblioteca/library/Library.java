@@ -1,11 +1,9 @@
 package com.twu.biblioteca.library;
 
 import com.twu.biblioteca.command.Command;
-import com.twu.biblioteca.library.loan.LibraryItem;
+import com.twu.biblioteca.library.libraryitem.LibraryItem;
 import com.twu.biblioteca.utils.BibliotecaInputHandler;
 import com.twu.biblioteca.utils.BibliotecaOutputPresenter;
-import com.twu.biblioteca.utils.LoginValidator;
-import com.twu.biblioteca.utils.User;
 
 import java.util.Collections;
 import java.util.List;
@@ -15,30 +13,19 @@ public class Library {
     private final List<LibraryItem> libraryCatalogue;
     private final List<LibraryItem> withdrawnItemList;
     private boolean running;
+    private User userSession;
 
     public Library(List<LibraryItem> libraryCatalogue, List<LibraryItem> withdrawnItemList) {
         this.libraryCatalogue = libraryCatalogue;
         this.withdrawnItemList = withdrawnItemList;
     }
 
-    public void start() {
-        running = true;
+    public void start(User user) {
+        this.setRunning(true);
+        this.setUserSession(user);
         System.out.println(BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
 
         while (running) executeCommand(BibliotecaInputHandler.commandPrompt());
-    }
-
-    public void login() {
-        boolean loggedIn = false;
-
-        while (!loggedIn) {
-            User user = LoginValidator.getUserFromLibraryNumberAndPassword(BibliotecaInputHandler.loginPrompt(), BibliotecaInputHandler.passwordPrompt());
-
-            if (user != null) {
-                loggedIn = true;
-                start();
-            }
-        }
     }
 
     public void executeCommand(String commandAsString) {
@@ -96,5 +83,17 @@ public class Library {
 
     public boolean isRunning() {
         return running;
+    }
+
+    public void setRunning(boolean running) {
+        this.running = running;
+    }
+
+    public User getUserSession() {
+        return userSession;
+    }
+
+    public void setUserSession(User userSession) {
+        this.userSession = userSession;
     }
 }

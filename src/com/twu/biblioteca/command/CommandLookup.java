@@ -8,7 +8,9 @@ public enum CommandLookup {
 
     WITHDRAW(new WithdrawCommand(null)),
 
-    RETURN(new ReturnCommand(null));
+    RETURN(new ReturnCommand(null)),
+
+    INFO(new InfoCommand(null));
 
     private final Command command;
 
