@@ -24,7 +24,7 @@ public class BibliotecaInputHandler {
 
     public static Command parseInputIntoCommand(String input) {
         Command command = null;
-        String[] splitInput = input.split(" "); // [0]withdraw [1]1
+        String[] splitInput = input.split(" ");
 
         try {
             command = CommandLookup.valueOf(splitInput[0].trim().toUpperCase()).getCommand();
