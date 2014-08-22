@@ -1,8 +1,8 @@
 package com.twu.biblioteca.utils;
 
 
-import com.twu.biblioteca.library.Book;
-import com.twu.biblioteca.library.LibraryItem;
+import com.twu.biblioteca.library.loan.Book;
+import com.twu.biblioteca.library.loan.LibraryItem;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,7 +14,8 @@ public class BibliotecaOutputPresenterTest {
 
     @Test
     public void welcomeMessageAndMenuOptionsArePrinted() {
-        assertEquals("Hello! Welcome to the Biblioteca!\nMenu Options: List, Withdraw <id>, Return <id>, Quit", BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
+        assertEquals("Hello! Welcome to the Biblioteca!\n" +
+                "Menu Options: List, Withdraw <id>, Return <id>, Quit", BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
     }
 
     @Test
@@ -28,7 +29,8 @@ public class BibliotecaOutputPresenterTest {
             add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960"));
             add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937"));
         }};
-        assertEquals("1 | To Kill a Mockingbird | Harper Lee | 1960\n2 | Of Mice and Men | John Steinbeck | 1937\n", BibliotecaOutputPresenter.listOfItems(listOfItmes));
+        assertEquals("1 | To Kill a Mockingbird | Harper Lee | 1960\n" +
+                "2 | Of Mice and Men | John Steinbeck | 1937\n", BibliotecaOutputPresenter.listOfItems(listOfItmes));
     }
 
     @Test
@@ -59,5 +61,16 @@ public class BibliotecaOutputPresenterTest {
     @Test
     public void onUnsuccessfulReturnInvalidBookMessageIsPrinted() {
         assertEquals("That is not a valid item to return.", BibliotecaOutputPresenter.unsuccessfulReturnMessage());
+    }
+
+    @Test
+    public void loginMessageIsPrinted() throws Exception {
+        assertEquals("Please Login to the Biblioteca!\n" +
+                "Username (Library Number):", BibliotecaOutputPresenter.loginMessage());
+    }
+
+    @Test
+    public void passwordPromptIsPrinted() throws Exception {
+        assertEquals("Password:", BibliotecaOutputPresenter.passwordPromptMessage());
     }
 }

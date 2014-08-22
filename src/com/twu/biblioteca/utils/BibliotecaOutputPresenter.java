@@ -1,13 +1,14 @@
 package com.twu.biblioteca.utils;
 
-import com.twu.biblioteca.library.LibraryItem;
+import com.twu.biblioteca.library.loan.LibraryItem;
 
 import java.util.List;
 
 public class BibliotecaOutputPresenter {
 
     public static String welcomeMessageAndMenuOptions() {
-        return "Hello! Welcome to the Biblioteca!\nMenu Options: List, Withdraw <id>, Return <id>, Quit";
+        return "Hello! Welcome to the Biblioteca!\n" +
+                "Menu Options: List, Withdraw <id>, Return <id>, Quit";
     }
 
     public static String commandPromptMessage() {
@@ -44,5 +45,14 @@ public class BibliotecaOutputPresenter {
 
     public static String quitMessage() {
         return "Thank you for using the Biblioteca!";
+    }
+
+    public static String loginMessage() {
+        return "Please Login to the Biblioteca!\n" +
+                "Username (Library Number):";
+    }
+
+    public static String passwordPromptMessage() {
+        return "Password:";
     }
 }
