@@ -105,7 +105,7 @@ public class BibliotecaAppTest {
     @Test
     public void whenIEnterTheInfoCommandMyInformationShouldBePresented() {
         library.executeCommand("Info");
-        assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890", byteArrayOutputStream.toString());
+        assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890\n", byteArrayOutputStream.toString());
     }
 
     private User validUser() {

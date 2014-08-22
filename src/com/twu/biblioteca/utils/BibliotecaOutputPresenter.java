@@ -9,7 +9,7 @@ public class BibliotecaOutputPresenter {
 
     public static String welcomeMessageAndMenuOptions() {
         return "Hello! Welcome to the Biblioteca!\n" +
-                "Menu Options: List, Withdraw <id>, Return <id>, Quit";
+                "Menu Options: List, Withdraw <id>, Return <id>, Quit, Info";
     }
 
     public static String commandPromptMessage() {

@@ -1,6 +1,5 @@
 package com.twu.biblioteca.utils;
 
-
 import com.twu.biblioteca.library.User;
 import com.twu.biblioteca.library.libraryitem.Book;
 import com.twu.biblioteca.library.libraryitem.LibraryItem;
@@ -16,7 +15,7 @@ public class BibliotecaOutputPresenterTest {
     @Test
     public void welcomeMessageAndMenuOptionsArePrinted() {
         assertEquals("Hello! Welcome to the Biblioteca!\n" +
-                "Menu Options: List, Withdraw <id>, Return <id>, Quit", BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
+                "Menu Options: List, Withdraw <id>, Return <id>, Quit, Info", BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
     }
 
     @Test
@@ -78,6 +77,6 @@ public class BibliotecaOutputPresenterTest {
     @Test
     public void userInfoIsPrinted() {
         User user = new User("123-4567", "Password1", "Test User", "testuser@biblioteca.co.uk", "01234567890");
-        assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890", BibliotecaOutputPresenter.userInfo(user));
+        assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890\n", BibliotecaOutputPresenter.userInfo(user));
     }
 }

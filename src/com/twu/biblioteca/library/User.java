@@ -28,14 +28,6 @@ public class User {
         return name;
     }
 
-    public String getEmailAddress() {
-        return emailAddress;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,6 +47,6 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("%s | %s | %s", name, emailAddress, phoneNumber);
+        return String.format("%s | %s | %s\n", name, emailAddress, phoneNumber);
     }
 }
