@@ -24,7 +24,7 @@ public class Library {
     }
 
     public void executeCommand(String commandAsString) {
-        Command command = BibliotecaInputHandler.parseInputIntoCommand(commandAsString);
+        Command command = BibliotecaInputHandler.parseUserInputIntoCommand(commandAsString);
 
         if (command == null) System.out.println(BibliotecaOutputPresenter.invalidCommandMessage());
         else command.execute(this);

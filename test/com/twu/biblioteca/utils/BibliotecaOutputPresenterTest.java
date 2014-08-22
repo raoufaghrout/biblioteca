@@ -66,7 +66,7 @@ public class BibliotecaOutputPresenterTest {
     @Test
     public void loginMessageIsPrinted() throws Exception {
         assertEquals("Please Login to the Biblioteca!\n" +
-                "Library Number:", BibliotecaOutputPresenter.loginMessage());
+                "Library Number:", BibliotecaOutputPresenter.loginPromptMessage());
     }
 
     @Test

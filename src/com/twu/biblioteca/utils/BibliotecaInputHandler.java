@@ -9,8 +9,22 @@ import java.io.InputStreamReader;
 
 public class BibliotecaInputHandler {
 
+    public static String loginPrompt() {
+        System.out.print(BibliotecaOutputPresenter.loginPromptMessage());
+        return userInput();
+    }
+
+    public static String passwordPrompt() {
+        System.out.print(BibliotecaOutputPresenter.passwordPromptMessage());
+        return userInput();
+    }
+
     public static String commandPrompt() {
         System.out.print(BibliotecaOutputPresenter.commandPromptMessage());
+        return userInput();
+    }
+
+    private static String userInput() {
         BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
 
         try {
@@ -22,7 +36,7 @@ public class BibliotecaInputHandler {
         return null;
     }
 
-    public static Command parseInputIntoCommand(String input) {
+    public static Command parseUserInputIntoCommand(String input) {
         Command command = null;
         String[] splitInput = input.split(" ");
 
