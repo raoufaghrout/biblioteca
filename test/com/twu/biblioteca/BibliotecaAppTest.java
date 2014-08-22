@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.library.Book;
+import com.twu.biblioteca.library.loan.Book;
 import com.twu.biblioteca.library.Library;
-import com.twu.biblioteca.library.LibraryItem;
-import com.twu.biblioteca.library.Movie;
+import com.twu.biblioteca.library.loan.LibraryItem;
+import com.twu.biblioteca.library.loan.Movie;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
