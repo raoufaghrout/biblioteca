@@ -14,6 +14,7 @@ public class BibliotecaInputHandlerTest {
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Withdraw 1").getClass(), WithdrawCommand.class);
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Return 2").getClass(), ReturnCommand.class);
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Info").getClass(), InfoCommand.class);
+        assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Loans").getClass(), LoansCommand.class);
     }
 
     @Test
@@ -23,5 +24,6 @@ public class BibliotecaInputHandlerTest {
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Withdraw 1").getParameter(), "1");
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Return 2").getParameter(), "2");
         assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Info").getParameter(), null);
+        assertEquals(BibliotecaInputHandler.parseUserInputIntoCommand("Loans").getParameter(), null);
     }
 }

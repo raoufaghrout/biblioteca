@@ -10,7 +10,9 @@ public enum CommandLookup {
 
     RETURN(new ReturnCommand(null)),
 
-    INFO(new InfoCommand(null));
+    INFO(new InfoCommand(null)),
+
+    LOANS(new LoansCommand(null));
 
     private final Command command;
 
