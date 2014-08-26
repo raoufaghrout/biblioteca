@@ -41,6 +41,7 @@ public class Library {
         if (libraryItem != null) {
             libraryCatalogue.remove(libraryItem);
             withdrawnItemList.add(libraryItem);
+            libraryItem.setLoanedBy(userSession);
             System.out.println(BibliotecaOutputPresenter.successfulCheckoutMessage());
             return;
         }
@@ -54,6 +55,7 @@ public class Library {
         if (libraryItem != null) {
             libraryCatalogue.add(libraryItem);
             withdrawnItemList.remove(libraryItem);
+            libraryItem.setLoanedBy(null);
             Collections.sort(libraryCatalogue);
             System.out.println(BibliotecaOutputPresenter.successfulReturnMessage());
             return;

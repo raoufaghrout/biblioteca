@@ -15,7 +15,7 @@ public class BibliotecaOutputPresenterTest {
     @Test
     public void welcomeMessageAndMenuOptionsArePrinted() {
         assertEquals("Hello! Welcome to the Biblioteca!\n" +
-                "Menu Options: List, Withdraw <id>, Return <id>, Quit, Info", BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
+                "Menu Options: List, Withdraw <id>, Return <id>, Loans, Info, Quit", BibliotecaOutputPresenter.welcomeMessageAndMenuOptions());
     }
 
     @Test
@@ -26,8 +26,8 @@ public class BibliotecaOutputPresenterTest {
     @Test
     public void listOfBooksIsPrintedWithAuthorAndDate() {
         List<LibraryItem> listOfItmes = new ArrayList<LibraryItem>() {{
-            add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960"));
-            add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937"));
+            add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960", null));
+            add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937", null));
         }};
         assertEquals("1 | To Kill a Mockingbird | Harper Lee | 1960\n" +
                 "2 | Of Mice and Men | John Steinbeck | 1937\n", BibliotecaOutputPresenter.listOfItems(listOfItmes));

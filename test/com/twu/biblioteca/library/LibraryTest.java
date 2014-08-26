@@ -24,7 +24,7 @@ public class LibraryTest {
     public void whenIWithdrawAnItemThatExistsItShouldBeAddedIntoTheListOfWithdrawnItems() {
         library = new Library(listContainingOneBook(), new ArrayList<LibraryItem>());
         library.withdrawItem("1");
-        assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960"), library.getWithdrawnItemList().get(0));
+        assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960", null), library.getWithdrawnItemList().get(0));
     }
 
     @Test
@@ -38,13 +38,13 @@ public class LibraryTest {
     public void whenIReturnAnItemThatHasBeenWithdrawnItIsAddedToTheItemList() {
         library = new Library(new ArrayList<LibraryItem>(), listContainingOneBook());
         library.returnBook("1");
-        assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960"), library.getLibraryCatalogue().get(0));
+        assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960", null), library.getLibraryCatalogue().get(0));
     }
 
     @Test
     public void whenIAttemptToFindAnItemThatExistsTheCorrectItemIsReturned() {
         library = new Library(listContainingOneBook(), new ArrayList<LibraryItem>());
-        assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960"), library.findItem(library.getLibraryCatalogue(), "1"));
+        assertEquals(new Book("1", "To Kill a MockingBird", "Harper Lee", "1960", null), library.findItem(library.getLibraryCatalogue(), "1"));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class LibraryTest {
 
     private ArrayList<LibraryItem> listContainingOneBook() {
         return new ArrayList<LibraryItem>() {{
-            add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960"));
+            add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960", null));
         }};
     }
 }

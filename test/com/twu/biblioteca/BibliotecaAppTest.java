@@ -29,14 +29,14 @@ public class BibliotecaAppTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
 
         List<LibraryItem> libraryItemList = new ArrayList<LibraryItem>() {{
-            add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960"));
-            add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937"));
-            add(new Movie("3", "Pulp Fiction", "Quentin Tarantino", "1994", "10"));
-            add(new Movie("4", "Jurassic Park", "Steven Spielberg", "1993", "unrated"));
+            add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960", null));
+            add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937", null));
+            add(new Movie("3", "Pulp Fiction", "Quentin Tarantino", "1994", "10", null));
+            add(new Movie("4", "Jurassic Park", "Steven Spielberg", "1993", "unrated", null));
         }};
 
         library = new Library(libraryItemList, new ArrayList<LibraryItem>());
-        library.setUserSession(validUser());
+        library.setUserSession(new User("123-4567", "Password1", "Test User", "testuser@biblioteca.co.uk", "01234567890"));
     }
 
     @After
@@ -108,7 +108,14 @@ public class BibliotecaAppTest {
         assertEquals("Test User | testuser@biblioteca.co.uk | 01234567890\n", byteArrayOutputStream.toString());
     }
 
-    private User validUser() {
-        return new User("123-4567", "Password1", "Test User", "testuser@biblioteca.co.uk", "01234567890");
+    @Test
+    public void whenIEnterTheLoansCommandTheListOfLoansIsPresented() {
+        library.executeCommand("Withdraw 1");
+        library.executeCommand("Withdraw 3");
+        library.executeCommand("Loans");
+        assertEquals("Thank you! Enjoy the item.\n" +
+                "Thank you! Enjoy the item.\n" +
+                "1 | To Kill a Mockingbird | Harper Lee | 1960 | Test User\n" +
+                "3 | Pulp Fiction | Quentin Tarantino | 1994 | 10 | Test User\n", byteArrayOutputStream.toString());
     }
 }
