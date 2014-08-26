@@ -25,12 +25,12 @@ public class BibliotecaOutputPresenterTest {
 
     @Test
     public void listOfBooksIsPrintedWithAuthorAndDate() {
-        List<LibraryItem> listOfItmes = new ArrayList<LibraryItem>() {{
+        List<LibraryItem> listOfItems = new ArrayList<LibraryItem>() {{
             add(new Book("1", "To Kill a Mockingbird", "Harper Lee", "1960", null));
             add(new Book("2", "Of Mice and Men", "John Steinbeck", "1937", null));
         }};
         assertEquals("1 | To Kill a Mockingbird | Harper Lee | 1960\n" +
-                "2 | Of Mice and Men | John Steinbeck | 1937\n", BibliotecaOutputPresenter.listOfItems(listOfItmes));
+                "2 | Of Mice and Men | John Steinbeck | 1937\n", BibliotecaOutputPresenter.listOfItems(listOfItems));
     }
 
     @Test
