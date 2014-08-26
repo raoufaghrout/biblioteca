@@ -29,7 +29,7 @@ public class LibraryItem implements Comparable {
     @Override
     public boolean equals(Object o) {
         LibraryItem libraryItem = (LibraryItem) o;
-        return this.getNumber().equals(((libraryItem).getNumber()));
+        return (this.getNumber().equals(((libraryItem).getNumber())) && (o.getClass().equals(this.getClass())));
     }
 
     @Override
